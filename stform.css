@@ -2,12 +2,16 @@
     padding-left: 400px;
     color: white ;
 }
-
 .abc{
-width: 300px;
+    width: 300px;
 }
 .nav-item{
-padding-left: 30px;
+    padding-left: 30px;
+}
+.student{
+    text-align: center;
+    margin-top: 20px;
+    color:  white;
 }
 
 .dflex{

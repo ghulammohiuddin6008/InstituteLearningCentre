@@ -1,3 +1,5 @@
+var dtStudnet =firebase.database().ref('student')
+
 var gender="male"
 function funcmale(){
     gender="male"
@@ -6,7 +8,8 @@ function funcfemale(){
     gender="female"
 }
 
-function Objectstudent(stname,fname,cnic,dob,gender,cellno,whatsappno,address){
+function Objectstudent(key,stname,fname,cnic,dob,gender,cellno,whatsappno,address){
+    this.Key=key
     this.Stname=stname
     this.Fname=fname
     this.Cnic=cnic
@@ -24,8 +27,11 @@ function funcsubmit(){
     var dob=document.getElementById("txtdob").value
     var cellno=document.getElementById("txtcellno").value
     var whatsappno=document.getElementById("txtwhatsappno").value
-    var address=document.getElementById("txtaddress").value 
-    var objst= new Objectstudent(stname,fname,cnic,dob,gender,cellno,whatsappno,address)
+    var address=document.getElementById("txtaddress").value
+    var key = dtStudnet.push().key
+
+    var objst= new Objectstudent(key,stname,fname,cnic,dob,gender,cellno,whatsappno,address)
+    dtStudnet.child(key).set(objst)
     console.log (objst)
 }
 
